@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    FILE *source_file, *dest_file;
+    char ch;
+
+
+    source_file = fopen("C:/Users/karth/OneDrive/Desktop/leelasecond.txt ", "r");
+    if (source_file == NULL) {
+        printf("Unable to open source file.\n");
+        return 1;
+    }
+
+
+    dest_file = fopen("C:/Users/karth/OneDrive/Desktop/leelasecon.txt", "w");
+    if (dest_file == NULL) {
+        printf("Unable to create destination file.\n");
+        fclose(source_file);
+        return 1;
+    }
+
+    while ((ch = fgetc(source_file)) != EOF) {
+        fputc(ch, dest_file);
+    }
+
+]
+    fclose(source_file);
+    fclose(dest_file);
+
+    printf("File copied successfully.\n");
+    return 0;
+}
